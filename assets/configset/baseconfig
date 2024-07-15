@@ -121,4 +121,98 @@ config router static
         set gateway 172.16.8.1
         set device "port2"
     next
+    edit 1
+        set gateway 172.16.16.1
+        set distance 1
+        set device "port1"
+    next
+end
+
+config system automation-trigger
+   edit "FortiGate Device Shutdown"
+       set event-type event-log
+       set logid 32200
+   next
+end
+ 
+config system automation-action
+   edit "Stop FortiFlex Entitlement"
+       set description "Stop FortiFlex Point Consumption on FortiGate Shutdown"
+       set action-type webhook
+       set protocol https
+       set uri "jmcdonough-fortiflexv2.azurewebsites.net/api/flexop"
+       set http-body "{\"flexop\":\"entitlements_stop\", \"serial_number\":\"%%devid%%\"}"
+       set port 443
+       config http-headers
+           edit 1
+               set key "fortiflex_access_username"
+               set value "value-of-you-flex-api-username"
+           next
+           edit 2
+               set key "fortiflex_access_password"
+               set value " value-of-you-flex-api-password"
+           next
+       end
+       set verify-host-cert disable
+   next
+end
+ 
+config system automation-stitch
+   edit "Stop FortiFlex Entitlement"
+       set status enable
+       set trigger "FortiGate Device Shutdown"
+       config actions
+           edit 1
+               set action "Stop FortiFlex Entitlement"
+               set required enable
+           next
+       end
+       set destination "Stop FortiFlex Entitlement"
+   next
+end
+ 
+ 
+ 
+config system automation-trigger
+   edit "FortiGate Device Startup"
+       set event-type event-log
+       set logid 32009
+   next
+end
+ 
+config system automation-action
+   edit "Start FortiFlex Entitlement"
+       set description "Start FortiFlex Point Consumption on FortiGate startup"
+       set action-type webhook
+       set protocol https
+       set uri "jmcdonough-fortiflexv2.azurewebsites.net/api/flexop"
+       set http-body "{\"flexop\":\"entitlements_reactivate\", \"serial_number\":\"%%devid%%\"}"
+       set port 443
+       config http-headers
+           edit 1
+               set key "fortiflex_access_username"
+               set value "value-of-you-flex-api-username"
+           next
+           edit 2
+               set key "fortiflex_access_password"
+               set value " value-of-you-flex-api-password"
+           next
+       end
+       set verify-host-cert disable
+   next
+end
+ 
+config system automation-stitch
+   edit "Start FortiFlex Entitlement"
+       set status enable
+       set trigger "FortiGate Device Startup"
+       config actions
+           edit 1
+               set action "Start FortiFlex Entitlement"
+               set delay 120
+               set required enable
+           next
+       end
+       set destination "Start FortiFlex Entitlement"
+   next
 end

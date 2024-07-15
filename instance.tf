@@ -53,7 +53,7 @@ resource "google_compute_instance_template" "default" {
 }
 resource "google_compute_health_check" "autohealing" {
   name                = "${var.cluster_name}-healthcheck-${random_string.random_name_post.result}"
-  check_interval_sec  = 5
+  check_interval_sec  = 20
   timeout_sec         = 5
   healthy_threshold   = 2
   unhealthy_threshold = 10 # 50 seconds
