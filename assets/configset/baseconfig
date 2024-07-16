@@ -121,7 +121,7 @@ config router static
         set gateway 172.16.8.1
         set device "port2"
     next
-    edit 1
+    edit 2
         set gateway 172.16.16.1
         set distance 1
         set device "port1"

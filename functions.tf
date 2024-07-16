@@ -31,7 +31,7 @@ resource "google_cloudfunctions_function" "function" {
     ASSET_STORAGE_NAME       = "${google_storage_bucket.bucket.name}",
     ASSET_STORAGE_KEY_PREFIX = "empty",
     FORTIGATE_PSK_SECRET     = "${random_string.psk.result}",
-    FIRESTORE_INITIALIZED    = "false",
+    FIRESTORE_INITIALIZED    = "true",
     TRIGGER_URL              = "https://${var.region}-${var.project}.cloudfunctions.net/${var.cluster_name}-${random_string.random_name_post.result}"
     RESOURCE_TAG_PREFIX      = "${var.cluster_name}"
     PAYG_SCALING_GROUP_NAME  = "${var.cluster_name}-${random_string.random_name_post.result}",
