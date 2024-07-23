@@ -70,6 +70,7 @@ data "template_file" "setup_secondary_ip" {
   vars = {
     fgt_secondary_ip   = "${google_compute_forwarding_rule.default.ip_address}",
     fgt_internalslb_ip = "${google_compute_forwarding_rule.internal_load_balancer.ip_address}",
+    fgt_api_key        = "random_string.api_key.result",
   }
 }
 resource "local_file" "setup_secondary_ip_render" {

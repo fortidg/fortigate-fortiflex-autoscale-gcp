@@ -6,7 +6,7 @@ config system probe-response
 end
 config system api-user
     edit "apiadmin"
-        set api-key {FORTIGATE_API_KEY}
+        set api-key ${fgt_api_key}
         set accprofile "super_admin"
         set vdom "root"
     next
