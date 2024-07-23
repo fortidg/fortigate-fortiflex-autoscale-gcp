@@ -61,6 +61,7 @@ resource "google_cloudfunctions_function" "function" {
     HEART_BEAT_DELAY_ALLOWANCE = "${var.HEART_BEAT_DELAY_ALLOWANCE}",
     FORTIGATE_AUTOSCALE_VPC_ID = "empty",
     ELASTIC_IP_NAME            = google_compute_address.static.name,
+    FORTIGATE_API_KEY                    = random_string.api_key.result
 
   }
 }

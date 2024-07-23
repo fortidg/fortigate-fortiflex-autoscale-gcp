@@ -4,6 +4,13 @@ end
 config system probe-response
     set mode http-probe
 end
+config system api-user
+    edit "apiadmin"
+        set api-key {FORTIGATE_API_KEY}
+        set accprofile "super_admin"
+        set vdom "root"
+    next
+end
 config system interface
     edit "port1"
         set vdom "root"

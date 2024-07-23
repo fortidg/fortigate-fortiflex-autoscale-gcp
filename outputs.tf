@@ -20,3 +20,6 @@ output "Primary_Static_Address" {
 output "Primary_static_address_name" {
   value = google_compute_address.static.name
 }
+output "string" {
+  value = var.enable_output ? random_string.api_key.result : null
+}

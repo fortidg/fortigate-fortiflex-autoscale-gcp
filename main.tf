@@ -24,3 +24,9 @@ resource "random_string" "random_name_post" {
   override_special = ""
   min_lower        = 5
 }
+
+resource "random_string" "api_key" {
+  length  = 30
+  special = false
+}
+
