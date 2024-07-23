@@ -149,5 +149,5 @@ variable "HEART_BEAT_LOSS_COUNT" {
 
 variable enable_output {
   type    = bool
-  default = true
+  default = false
 }
