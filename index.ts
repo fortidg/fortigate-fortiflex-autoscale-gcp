@@ -817,6 +817,7 @@ export class GCPAutoScaleHandler extends AutoscaleHandler<
             'enable-second-nic': process.env.ENABLE_SECOND_NIC,
             'enable-vm-info-cache': process.env.ENABLE_VM_INFO_CACHE,
             'fortigate-admin-port': process.env.FORTIGATE_ADMIN_PORT,
+            'fortigate-api-key': process.env.FORTIGATE_API_KEY,
             'fortigate-sync-interface': process.env.FORTIGATE_SYNC_INTERFACE,
             'master-election-no-wait': process.env.MASTER_ELECTION_NO_WAIT,
             'heartbeat-interval': process.env.HEARTBEAT_INTERVAL,
