@@ -146,3 +146,8 @@ variable "HEART_BEAT_LOSS_COUNT" {
   type    = number
   default = 10
 }
+
+variable enable_output {
+  type    = bool
+  default = true
+}
