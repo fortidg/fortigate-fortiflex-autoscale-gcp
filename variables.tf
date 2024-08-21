@@ -47,6 +47,7 @@ variable "nodejs_version" {
   type    = string
   default = "nodejs10"
 }
+
 #Source zip to be uploaded to Compute Function
 variable "source_code_location" {
   type    = string
@@ -56,6 +57,7 @@ variable "source_code_name" {
   type    = string
   default = "gcp.zip"
 }
+
 # Upload a Local ssh key to the FortiGates
 variable "public_key_path" {
   type    = string
@@ -150,4 +152,55 @@ variable "HEART_BEAT_LOSS_COUNT" {
 variable enable_output {
   type    = bool
   default = false
+}
+
+
+#### Flex Function Configuration Variables ####
+#Source zip for FLEX to be uploaded to Compute Function
+variable "flex_code_location" {
+  type    = string
+  default = "./dist/flex_gcp.zip"
+}
+variable "flex_code_name" {
+  type    = string
+  default = "flex_gcp.zip"
+}
+
+#Source Service Account .json file
+variable "account_json_location" {
+  type    = string
+  default = "./dist/account.json"
+}
+variable "account_json_name" {
+  type    = string
+  default = "account.json"
+}
+# Python Version
+variable "python_version" {
+  type    = string
+  default = "python312"
+}
+
+#<FortiFlex apiID>
+variable "flexuser" {
+  type    = string
+  default = ""
+}
+
+#<Fortiflex password>
+variable "flexpass" {
+  type    = string
+  default = ""
+}
+
+#Flex Program Serial <ELAVMR0000____>
+variable "flex_prog_serial" {
+  type    = string
+  default = ""
+}
+
+#<FortiFlex Configuration Name>
+variable "flex_conf_name" {
+  type    = string
+  default = ""
 }

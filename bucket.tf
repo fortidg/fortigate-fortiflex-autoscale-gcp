@@ -11,6 +11,9 @@ resource "google_storage_bucket_object" "archive" {
   source = var.source_code_location
 }
 
+
+
+
 # Use rendered template file and upload as 'baseconfig'
 resource "google_storage_bucket_object" "baseconfig" {
   name       = "baseconfig"
@@ -26,4 +29,17 @@ data "google_iam_policy" "editor" {
 
     ]
   }
+}
+
+####FortiFlex Resources####
+resource "google_storage_bucket_object" "flex_archive" {
+  name   = var.flex_code_name
+  bucket = google_storage_bucket.bucket.name
+  source = var.flex_code_location
+}
+
+resource "google_storage_bucket_object" "servie_account" {
+  name   = var.account_json_name
+  bucket = google_storage_bucket.bucket.name
+  source = var.account_json_location
 }

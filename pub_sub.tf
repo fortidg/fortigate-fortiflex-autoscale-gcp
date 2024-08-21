@@ -4,7 +4,7 @@ resource "google_pubsub_topic" "log_topic" {
 
 resource "google_logging_project_sink" "ascale-sink" {
     name        = "autoscale-log-sink"
-    destination = "pubsub.googleapis.com/projects/${var.project_id}/topics/${google_pubsub_topic.log_topic.name}"
+    destination = "pubsub.googleapis.com/projects/${var.project}/topics/${google_pubsub_topic.log_topic.name}"
     filter = <<EOF
     protoPayload.methodName="v1.compute.instances.insert" OR "v1.compute.instances.delete"
     protoPayload.requestMetadata.callerSuppliedUserAgent="GCE Managed Instance Group"
