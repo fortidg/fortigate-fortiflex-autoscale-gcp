@@ -1,5 +1,5 @@
 resource "google_pubsub_topic" "log_topic" {
-    name = "log-topic"
+    name = "ascaler-log-topic"
 }
 
 resource "google_logging_project_sink" "ascale-sink" {

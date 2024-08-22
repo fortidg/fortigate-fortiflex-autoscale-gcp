@@ -6,7 +6,10 @@ resource "google_cloudfunctions_function" "flex_function" {
   available_memory_mb   = 1024
   source_archive_bucket = google_storage_bucket.bucket.name
   source_archive_object = google_storage_bucket_object.flex_archive.name
-  event_trigger         = true
+  event_trigger {
+    event_type = "google.cloud.pubsub.topic.v1.messagePublished"
+    resource   = google_pubsub_topic.log_topic.name
+  }
   timeout               = var.SCRIPT_TIMEOUT
   entry_point           = "ascale_pubsub"
   timeouts {
