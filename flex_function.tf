@@ -39,7 +39,7 @@ resource "google_cloudfunctions2_function" "flex_function" {
   event_trigger {
     trigger_region = "us-central1"
     event_type = "google.cloud.pubsub.topic.v1.messagePublished"
-    pubsub_topic = google_pubsub_topic.log_topic.name
+    pubsub_topic = google_pubsub_topic.log_topic.id
     retry_policy = "RETRY_POLICY_DO_NOT_RETRY"
   }
 }
