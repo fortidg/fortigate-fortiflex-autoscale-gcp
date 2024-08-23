@@ -30,8 +30,8 @@ resource "random_string" "api_key" {
   special = false
 }
 
-resource "time_sleep" "wait_60_seconds" {
+resource "time_sleep" "wait" {
   depends_on = [google_cloudfunctions2_function.flex_function]
 
-  create_duration = "60s"
+  create_duration = "5m"
 }

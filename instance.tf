@@ -1,6 +1,7 @@
 
 # Instance Template
 resource "google_compute_instance_template" "default" {
+  depends_on = [ time_sleep.wait ]
   depends_on  = [google_cloudfunctions_function.function]
   name        = "${var.cluster_name}-instance-template-${random_string.random_name_post.result}"
   description = "Fortigate AutoScale Cluster"
@@ -65,7 +66,7 @@ resource "google_compute_health_check" "autohealing" {
 }
 
 resource "google_compute_region_instance_group_manager" "appserver" {
-  depends_on = [ time_sleep.wait_60_seconds ]
+  depends_on = [ time_sleep.wait ]
   name                      = "${var.cluster_name}-fortigate-autoscale-${random_string.random_name_post.result}"
   base_instance_name        = "${var.cluster_name}-instance-${random_string.random_name_post.result}"
   region                    = var.region
@@ -86,6 +87,7 @@ resource "google_compute_region_instance_group_manager" "appserver" {
 }
 ### Regional AutoScaler ###
 resource "google_compute_region_autoscaler" "default" {
+  depends_on = [ time_sleep.wait ]
   provider = google-beta
   project  = var.project
   #Name needs to be in lowercase
