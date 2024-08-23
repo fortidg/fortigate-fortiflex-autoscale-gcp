@@ -1,8 +1,7 @@
 
 # Instance Template
 resource "google_compute_instance_template" "default" {
-  depends_on = [ time_sleep.wait ]
-  depends_on  = [google_cloudfunctions_function.function]
+  depends_on  = [google_cloudfunctions_function.function, time_sleep.wait]
   name        = "${var.cluster_name}-instance-template-${random_string.random_name_post.result}"
   description = "Fortigate AutoScale Cluster"
 
