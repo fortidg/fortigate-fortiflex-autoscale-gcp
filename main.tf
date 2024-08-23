@@ -31,7 +31,7 @@ resource "random_string" "api_key" {
 }
 
 resource "time_sleep" "wait" {
-  depends_on = [google_cloudfunctions2_function.flex_function]
+  depends_on = [google_logging_project_sink.ascale-sink]
 
   create_duration = "5m"
 }
