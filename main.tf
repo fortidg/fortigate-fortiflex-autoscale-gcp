@@ -36,7 +36,7 @@ resource "time_sleep" "wait" {
   create_duration = "1m"
 }
 
-resource "google_project_iam_binding" "gcs-bucket-writer" {
+resource "google_project_iam_binding" "gcs-pbusub-publisher" {
   project = var.project
   role = "roles/pubsub.publisher"
 
