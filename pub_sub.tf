@@ -5,6 +5,7 @@ resource "google_pubsub_topic" "log_topic" {
 resource "google_logging_project_sink" "ascale-sink" {
     name        = "autoscale-sink-${random_string.random_name_post.result}"
     description = "Sink for autoscale logs"
+    unique_writer_identity = true
     destination = "pubsub.googleapis.com/projects/${var.project}/topics/${google_pubsub_topic.log_topic.name}"
     filter = <<EOF
     protoPayload.methodName="v1.compute.instances.insert" OR "v1.compute.instances.delete"

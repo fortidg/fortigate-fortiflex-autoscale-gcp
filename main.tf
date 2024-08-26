@@ -35,3 +35,12 @@ resource "time_sleep" "wait" {
 
   create_duration = "1m"
 }
+
+resource "google_project_iam_binding" "gcs-bucket-writer" {
+  project = var.project
+  role = "roles/pubsub.publisher"
+
+  members = [
+    google_logging_project_sink.ascale-sink.writer_identity,
+  ]
+}
