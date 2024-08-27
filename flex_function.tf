@@ -17,7 +17,7 @@ resource "google_cloudfunctions2_function" "flex_function" {
   service_config {
     max_instance_count  = 100
     available_memory    = "1Gi"
-    timeout_seconds     = 60
+    timeout_seconds     = 120
     max_instance_request_concurrency = 1
     environment_variables = {
       BUCKET_NAME              = "${google_storage_bucket.bucket.name}",
@@ -29,7 +29,8 @@ resource "google_cloudfunctions2_function" "flex_function" {
       COLLECTION_NAME          = "autoscaleflex-${random_string.random_name_post.result}",
       VM_API_KEY               = "${random_string.api_key.result}",
       FLEX_PROG_SERIAL         = "${var.flex_prog_serial}",
-      FLEX_CONFIG_NAME         = "${var.flex_conf_name}"
+      FLEX_CONFIG_NAME         = "${var.flex_conf_name}",
+      PORT                     = "${var.FORTIGATE_ADMIN_PORT}"
     }
     ingress_settings = "ALLOW_ALL"
     all_traffic_on_latest_revision = true
