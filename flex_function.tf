@@ -30,7 +30,7 @@ resource "google_cloudfunctions2_function" "flex_function" {
       VM_API_KEY               = "${random_string.api_key.result}",
       FLEX_PROG_SERIAL         = "${var.flex_prog_serial}",
       FLEX_CONFIG_NAME         = "${var.flex_conf_name}",
-      PORT                     = "${var.FORTIGATE_ADMIN_PORT}"
+      FORTIGATE_ADMIN_PORT     = "${var.FORTIGATE_ADMIN_PORT}"
     }
     ingress_settings = "ALLOW_ALL"
     all_traffic_on_latest_revision = true
