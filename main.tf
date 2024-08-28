@@ -30,11 +30,11 @@ resource "random_string" "api_key" {
   special = false
 }
 
-resource "time_sleep" "wait" {
-  depends_on = [google_logging_project_sink.ascale-sink]
+# resource "time_sleep" "wait" {
+#   depends_on = [google_logging_project_sink.ascale-sink]
 
-  create_duration = "1m"
-}
+#   create_duration = "1m"
+# }
 
 resource "google_project_iam_binding" "gcs-pbusub-publisher" {
   project = var.project

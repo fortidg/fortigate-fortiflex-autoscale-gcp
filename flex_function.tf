@@ -17,7 +17,7 @@ resource "google_cloudfunctions2_function" "flex_function" {
   service_config {
     max_instance_count  = 100
     available_memory    = "1Gi"
-    timeout_seconds     = 500
+    timeout_seconds     = 60
     max_instance_request_concurrency = 1
     environment_variables = {
       BUCKET_NAME              = "${google_storage_bucket.bucket.name}",
