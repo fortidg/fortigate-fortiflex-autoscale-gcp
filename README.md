@@ -72,7 +72,7 @@ To generate local deployment packages:
 
 1. Clone this project.
 1. Run ```npm install``` ```npm run setup``` at the project root directory
-1. The variable "auth_key" is set up to default to account.json  In my setup, I downloaded the .json key file for my service account to the autoscale root directory and renamed the file as account.json.
+1. The variable "auth_key" is set up to default to account.json.  In my setup, I downloaded the .json key file for my service account to the autoscale root directory and renamed the file as account.json.
 1. Modify variables.tf and add the appropriate values for
     - project
     - service_account
@@ -80,7 +80,7 @@ To generate local deployment packages:
     - flex_prog_serial
     - flexpass
     - flexuser
-1. Copy account.json and flex_gcp.zip into the **dist** folder.
+1. Copy **account.json** and **flex_gcp.zip** into the **dist** folder.
 1. Issue ```terraform init``` command
 1. Issue ```terraform plan -out tf.plan``` command
 1. Issue ```terraform apply tf.plan --auto-approve`` command
