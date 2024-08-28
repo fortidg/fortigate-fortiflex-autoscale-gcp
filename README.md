@@ -47,8 +47,13 @@ This Repository contains addtions to the original FortiGate Autoscale architectu
     - Logs Writer
     - Project IAM Admin
     - Pub/Sub Admin
-1. FortiFlex Account with API User Credentials
-    - [Create IAM User](https://docs.fortinet.com/document/forticloud/21.2.0/identity-access-management-iam/282341/adding-an-api-user)
+1. GCP Firestore "default" database already created
+1. FortiFlex Account:
+    - with API (read/write) User Credentials  
+        - [Create IAM User](https://docs.fortinet.com/document/forticloud/21.2.0/identity-access-management-iam/282341/adding-an-api-user)
+    - **Dedicated** Fortigate-VM Configuration which will only be used for Autoscale.
+    - N x **Pre-configured (Pending or Stopped state)** Flex Entitlements for the decidated configuration.  N = The maximium number of FortiGates in the Managed Instance Group
+1. 
 
 1. 
 
@@ -56,8 +61,6 @@ This Repository contains addtions to the original FortiGate Autoscale architectu
 A collection of **Node.js** modules and cloud-specific templates that support autoscale functionality for groups of FortiGate-VM instances on various cloud platforms.
 
 This project contains the code and templates for the **FortiGate Autoscale for GCP** deployment.
-For autoscale on **AliCloud** see the [alicloud-autoscale](https://github.com/fortinet/alicloud-autoscale/) repository.
-For autoscale on **Amazon AWS** and **Microsoft Azure** see the [fortigate-autoscale](https://github.com/fortinet/fortigate-autoscale/) repository.
 
 ## Supported Platforms
 
