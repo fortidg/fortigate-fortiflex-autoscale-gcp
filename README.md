@@ -59,6 +59,7 @@ A collection of **Node.js** modules and cloud-specific templates that support au
 
 This project contains the code and templates for the **FortiGate Autoscale for GCP** deployment.
 
+
 ## Supported Platforms
 
 This project supports autoscale for the cloud platform listed below.
@@ -90,8 +91,10 @@ To generate local deployment packages:
 # Support
 
 Fortinet-provided scripts in this and other GitHub projects do not fall under the regular Fortinet technical support scope and are not supported by FortiCare Support Services.
-For direct issues, please refer to the [Issues](https://github.com/fortinet/fortigate-autoscale-gcp/issues) tab of this GitHub project.
-For other questions related to this project, contact [github@fortinet.com](mailto:github@fortinet.com).
+
+
+### FortiFlex Function Code Base
+The FortiFlex Function Code base is zipped and included in this repository.  If you would like to modify that code bas, it can be found at [this link](https://github.com/fortidg/gcp-flex-autoscale)
 
 ## License
 
