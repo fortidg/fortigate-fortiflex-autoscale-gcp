@@ -2,6 +2,7 @@ variable "project" {
   type    = string
   default = ""
 }
+#Service Account email associated with the auth_key
 variable "service_account" {
   type    = string
   default = ""
@@ -45,7 +46,7 @@ variable "bucket_name" {
 # Nodejs Version
 variable "nodejs_version" {
   type    = string
-  default = "nodejs10"
+  default = "nodejs18"
 }
 
 #Source zip to be uploaded to Compute Function

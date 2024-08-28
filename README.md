@@ -53,9 +53,6 @@ This Repository contains addtions to the original FortiGate Autoscale architectu
         - [Create IAM User](https://docs.fortinet.com/document/forticloud/21.2.0/identity-access-management-iam/282341/adding-an-api-user)
     - **Dedicated** Fortigate-VM Configuration which will only be used for Autoscale.
     - N x **Pre-configured (Pending or Stopped state)** Flex Entitlements for the decidated configuration.  N = The maximium number of FortiGates in the Managed Instance Group
-1. 
-
-1. 
 
 ## FortiGate Autoscale Function
 A collection of **Node.js** modules and cloud-specific templates that support autoscale functionality for groups of FortiGate-VM instances on various cloud platforms.
@@ -66,26 +63,29 @@ This project contains the code and templates for the **FortiGate Autoscale for G
 
 This project supports autoscale for the cloud platform listed below.
 
--   Google Cloud Platform (GCP)
-
-## Deployment
-
-The deployment Guide is available from the Fortinet Document Library:
-
--   [ FortiGate / FortiOS Deploying Auto Scaling on GCP](https://docs.fortinet.com/document/fortigate-public-cloud/7.2.0/gcp-administration-guide/365012/deploying-auto-scaling-on-gcp)
+-  Google Cloud Platform (GCP)
 
 ## Deployment Packages
 
 To generate local deployment packages:
 
 1. Clone this project.
-2. Run `npm run setup` at the project root directory.
+1. Run ```npm install``` ```npm run setup``` at the project root directory
+1. The variable "auth_key" is set up to default to account.json  In my setup, I downloaded the .json key file for my service account to the autoscale root directory and renamed the file as account.json.
+1. Modify variables.tf and add the appropriate values for
+    - project
+    - service_account
+    - flex_conf_name
+    - flex_prog_serial
+    - flexpass
+    - flexuser
+1. Copy account.json and flex_gcp.zip into the **dist** folder.
+1. Issue ```terraform init``` command
+1. Issue ```terraform plan -out tf.plan``` command
+1. Issue ```terraform apply tf.plan --auto-approve`` command
+1. Step away and grab some coffee.  It takes about 10 minutes for this to run completely.
 
-| File Name         | Description                                                       |
-| ----------------- | ----------------------------------------------------------------- |
-| gcp-autoscale.zip | Source code for the GCP Auto Scaling handler - GCP Cloud Function |
-| main.tf           | Terraform configuration file for GCP deployment                   |
-| vars.tf           | Terraform configuration file for GCP deployment                   |
+[Original Install Documentation](https://docs.fortinet.com/document/fortigate-public-cloud/7.2.0/gcp-administration-guide/971604/deployment)    |
 
 # Support
 
