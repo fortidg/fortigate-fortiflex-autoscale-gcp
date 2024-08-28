@@ -94,7 +94,7 @@ Fortinet-provided scripts in this and other GitHub projects do not fall under th
 
 
 ### FortiFlex Function Code Base
-The FortiFlex Function Code base is zipped and included in this repository.  If you would like to modify that code bas, it can be found at [this link](https://github.com/fortidg/gcp-flex-autoscale)
+The FortiFlex Function Code base is zipped and included in this repository.  If you would like to modify that code base, it can be found at [this link](https://github.com/fortidg/gcp-flex-autoscale)
 
 ## License
 
